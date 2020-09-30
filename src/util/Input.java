@@ -5,13 +5,11 @@ import java.util.Scanner;
 public class Input {
     private  Scanner scanner;
 
-
     public Input() {
         this.scanner = new Scanner(System.in);
     }
 
-
-        public String getString() {
+    public String getString() {
             return scanner.nextLine();
         }
 
@@ -49,7 +47,6 @@ public class Input {
         }
     }
 
-
     public double getDouble(){
         try{
             return Double.valueOf(getString());
@@ -67,7 +64,6 @@ public class Input {
             System.out.println("Please enter an integer between " + min + " and " + max);
             return getInt(min, max);
         }
-
     }
 
     public double getDouble(double min, double max){
