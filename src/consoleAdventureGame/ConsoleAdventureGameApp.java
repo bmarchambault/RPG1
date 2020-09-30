@@ -8,6 +8,7 @@ public class ConsoleAdventureGameApp {
         Input userInput = new Input();
         boolean confirmPlay;
         String nextMove;
+        boolean endGame = false;
 
         //ask if the user is ready to start
         //ask user for their name
@@ -23,18 +24,27 @@ public class ConsoleAdventureGameApp {
             hero.showInfo();
             Enemy enemy = new Enemy();
             enemy.showInfo();
-            nextMove = userInput.getString("What would you like to do next?  a = attack, d = drink potion, r = run");
+            do {
+                nextMove = userInput.getString("What would you like to do next?  a = attack, d = drink potion, r = run");
+                System.out.println(nextMove);
+                if (nextMove.equalsIgnoreCase("a")) {
+//                    hero.attack();
+                    enemy.attacked();
 
-            System.out.println(nextMove);
-            if(nextMove.equalsIgnoreCase("a")){
-                hero.attack();
-               enemy.attacked();
-            }
-        } else {
-            System.out.println("Maybe next time");
+                } else if (nextMove.equalsIgnoreCase("d")) {
+                    hero.drinkPotion();
+                    hero.remainingHealth();
+
+                } else if (nextMove.equalsIgnoreCase("r")) {
+                    hero.run();
+                } else {
+                    System.out.println("Maybe next time");
+                    endGame = true;
+                }
+
+
+            } while (!endGame);
         }
-
-
 
     }
 }
