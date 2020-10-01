@@ -4,6 +4,8 @@ import util.Input;
 
 public class ConsoleAdventureGameApp {
     public static void main(String[] args) {
+//enemy name generator
+//critical hits
 
         Input userInput = new Input();
         boolean confirmPlay;
@@ -37,7 +39,14 @@ public class ConsoleAdventureGameApp {
 
                 } else if (nextMove.equalsIgnoreCase("r")) {
                     hero.run();
-                } else {
+                } else if (enemy.enemysHealth <=0 || hero.herosHealth <= 0) {
+                    if(enemy.enemysHealth <= 0){
+                        System.out.println("You defeated the enemy");
+                        endGame = true;
+                    } else{
+                        System.out.println("You lost!");
+                        endGame = true;
+                    }
                     System.out.println("Maybe next time");
                     endGame = true;
                 }
