@@ -5,7 +5,7 @@ import util.Input;
 public abstract class AdventureGame {
 
     Input userInput = new Input();
-    protected String herosName;
+
     protected int herosHealth = 100;
     protected int enemysHealth = 100;
     protected int attack = 5;
@@ -20,9 +20,10 @@ public abstract class AdventureGame {
 
     public abstract void remainingHealth ();
     public abstract void attacked();
-    public abstract String getHerosName();
+//    public abstract String getHerosName();
 
     public int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
 }

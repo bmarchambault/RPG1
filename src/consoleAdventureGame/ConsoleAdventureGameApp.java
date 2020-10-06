@@ -5,7 +5,8 @@ import util.Input;
 public class ConsoleAdventureGameApp {
     public static void main(String[] args) {
 //enemy name generator
-//critical hits
+// end game doesn't work for 0 health or run.
+//enemy isn't dealing damage
 
         Input userInput = new Input();
         boolean confirmPlay;
@@ -18,7 +19,7 @@ public class ConsoleAdventureGameApp {
         //hero actions:  attack - decreases enemy health, drink potion - add to hero health, run - ends the game;
         //keep asking for user input until enemy health is
 
-        confirmPlay = userInput.yesNo("Would you like to play a role player game? ");
+        confirmPlay = userInput.yesNo("Would you like to play a role player game? (y/n)");
 //        System.out.println(playGame);
 
         if (confirmPlay) {
@@ -28,9 +29,10 @@ public class ConsoleAdventureGameApp {
             enemy.showInfo();
             do {
                 nextMove = userInput.getString("What would you like to do next?  a = attack, d = drink potion, r = run");
-                System.out.println(nextMove);
+//                System.out.println(nextMove);
                 if (nextMove.equalsIgnoreCase("a")) {
 //                    hero.attack();
+                    System.out.println(hero.getHerosName() + " decreased the enemy's health by 5 points");
                     enemy.attacked();
 
                 } else if (nextMove.equalsIgnoreCase("d")) {

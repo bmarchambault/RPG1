@@ -2,10 +2,21 @@ package consoleAdventureGame;
 import util.Input;
 
 public class Hero extends AdventureGame {
+    private String herosName;
 
     public Hero() {
-       herosName = userInput.getString("Great, Please enter a name");
+       setHerosName();
+
     }
+
+    public String setHerosName(){
+        herosName = userInput.getString("Great, Please enter a name");
+        return herosName;
+    }
+    public String getHerosName() {
+        return herosName;
+    }
+
 
 
     public void showInfo() {
@@ -43,14 +54,10 @@ public class Hero extends AdventureGame {
             defend();
         }else if(randomNumber == 6){
 
-
         }
     }
 
-    @Override
-    public String getHerosName() {
-        return this.herosName;
-    }
+
 
     @Override
     public void remainingHealth() {
