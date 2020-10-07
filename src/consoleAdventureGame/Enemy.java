@@ -1,30 +1,36 @@
 package consoleAdventureGame;
 
-public class Enemy extends AdventureGame {
-    public Enemy() {}
+public class Enemy extends AdventureGamePlayer {
 
+
+    public Enemy() {}
+    public Enemy(String opposing, int health){
+        super(opposing, health);
+    }
 
     @Override
     public void attacked() {
         enemysHealth = enemysHealth - attack;
        remainingHealth();
         randomNumber = getRandomNumber(10, 1);
-        System.out.println(randomNumber);
+        System.out.println("RANDOM NUMBER IS " + randomNumber);
         if(randomNumber == 3){
             defend();
         } else if (randomNumber == 4){
             defend();
-            attackHero();
+            attackHero(5);
         } else if(randomNumber == 6){
             defend();
-            System.out.println("Critical Hit! Enemy retaliated and dealt 10 damage");
-            herosHealth -= 10;
+            System.out.println("Enemy Retaliation! Critical Hit! 10 damage");
+           attackHero(10);
         }
     }
 
-    public void attackHero(){
-        herosHealth -= 5;
-        System.out.println("The enemy retaliated, your health is now " + herosHealth);
+    public void attackHero(int point){
+
+        System.out.println(herosHealth + "CURRENT HERO HEALTH");
+        herosHealth = herosHealth - point;
+        System.out.println("your health is now " + herosHealth);
     }
 
 

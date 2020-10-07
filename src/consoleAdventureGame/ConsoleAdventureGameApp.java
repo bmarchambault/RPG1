@@ -12,6 +12,8 @@ public class ConsoleAdventureGameApp {
         boolean confirmPlay;
         String nextMove;
         boolean endGame = false;
+        String opposing = "enemy";
+        String heroName;
 
         //ask if the user is ready to start
         //ask user for their name
@@ -23,21 +25,22 @@ public class ConsoleAdventureGameApp {
 //        System.out.println(playGame);
 
         if (confirmPlay) {
-            Hero hero = new Hero();
+            heroName = userInput.getString("Great, Please enter a name");
+            Hero hero = new Hero(heroName, 100);
             hero.showInfo();
-            Enemy enemy = new Enemy();
+            Enemy enemy = new Enemy(opposing, 100);
             enemy.showInfo();
             do {
                 nextMove = userInput.getString("What would you like to do next?  a = attack, d = drink potion, r = run");
 //                System.out.println(nextMove);
                 if (nextMove.equalsIgnoreCase("a")) {
 //                    hero.attack();
-                    System.out.println(hero.getHerosName() + " decreased the enemy's health by 5 points");
+                    System.out.println(hero.getHeroName() + " decreased the enemy's health by 5 points");
                     enemy.attacked();
 
                 } else if (nextMove.equalsIgnoreCase("d")) {
                     hero.drinkPotion();
-                    hero.remainingHealth();
+
 
                 } else if (nextMove.equalsIgnoreCase("r")) {
                     hero.run();

@@ -1,40 +1,50 @@
 package consoleAdventureGame;
-import util.Input;
 
-public class Hero extends AdventureGame {
-    private String herosName;
+public class Hero extends AdventureGamePlayer {
+    private String heroName;
+    private int heroHealth;
 
-    public Hero() {
-       setHerosName();
-
+    public Hero(String player, int health) {
+        super( player, health);
     }
 
-    public String setHerosName(){
-        herosName = userInput.getString("Great, Please enter a name");
-        return herosName;
-    }
-    public String getHerosName() {
-        return herosName;
-    }
+//    public String setHeroName(){
+//        heroName = userInput.getString("Great, Please enter a name");
+//        return heroName;
+//    }
+//    public String getHeroName() {
+//        return heroName;
+//    }
 
 
+    public void setHeroName(String heroName) {
+        this.heroName = heroName;
+    }
+
+    public int getHeroHealth() {
+        return heroHealth;
+    }
+
+    public void setHeroHealth(int heroHealth) {
+        this.heroHealth = heroHealth;
+    }
 
     public void showInfo() {
         System.out.println(
-                "Heros Name: " + herosName + '\n' +
-                "Heros Health = " + herosHealth);
+                "Hero's Name: " + heroName + '\n' +
+                "Hero's Health = " + heroHealth);
     }
 
     public void drinkPotion() {
         System.out.println("You increased your health by 15 points");
-        herosHealth += 15;
+        heroHealth += 15;
         remainingHealth();
     }
 
     @Override
     public void defend() {
         System.out.println("You've defended the enemy's attack.  You've prevented 3 damage points");
-        herosHealth -= 2;
+        heroHealth -= 2;
         remainingHealth();
     }
 
