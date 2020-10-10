@@ -17,22 +17,23 @@ public class Hero extends AdventureGamePlayer {
 //    }
 
 
-    public void setHeroName(String heroName) {
-        this.heroName = heroName;
-    }
 
-    public int getHeroHealth() {
-        return heroHealth;
-    }
-
-    public void setHeroHealth(int heroHealth) {
-        this.heroHealth = heroHealth;
-    }
+//    public void setHeroName(String heroName) {
+//        this.heroName = heroName;
+//    }
+//
+//    public int getHeroHealth() {
+//        return heroHealth;
+//    }
+//
+//    public void setHeroHealth(int heroHealth) {
+//        this.heroHealth = heroHealth;
+//    }
 
     public void showInfo() {
         System.out.println(
-                "Hero's Name: " + heroName + '\n' +
-                "Hero's Health = " + heroHealth);
+                "Hero's Name: " + getPlayer() + '\n' +
+                "Hero's Health = " + getHealth());
     }
 
     public void drinkPotion() {
@@ -71,7 +72,7 @@ public class Hero extends AdventureGamePlayer {
 
     @Override
     public void remainingHealth() {
-        System.out.println("You have " + herosHealth + " health.");
+        System.out.println("You have " + heroHealth + " health.");
     }
 
 
