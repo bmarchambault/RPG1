@@ -12,7 +12,8 @@ public class ConsoleAdventureGameApp {
         boolean confirmPlay;
         String nextMove;
         boolean endGame = false;
-        String opposing = "enemy";
+//        String opposing = "enemy";
+        String enemyType = "Lvl1 Thief";
         String heroName;
 
         //ask if the user is ready to start
@@ -28,14 +29,14 @@ public class ConsoleAdventureGameApp {
             heroName = userInput.getString("Great, Please enter a name");
             Hero hero = new Hero(heroName, 100);
             hero.showInfo();
-            Enemy enemy = new Enemy(opposing, 100);
+            Enemy enemy = new Enemy(enemyType, 100);
             enemy.showInfo();
             do {
                 nextMove = userInput.getString("What would you like to do next?  a = attack, d = drink potion, r = run");
 //                System.out.println(nextMove);
                 if (nextMove.equalsIgnoreCase("a")) {
-//                    hero.attack();
-                    System.out.println(hero.getHeroName() + " decreased the enemy's health by 5 points");
+//                   attack();
+                    System.out.println(hero.getPlayer() + " decreased" + enemy.getPlayer() + "health by 5 points");
                     enemy.attacked();
 
                 } else if (nextMove.equalsIgnoreCase("d")) {
@@ -44,8 +45,8 @@ public class ConsoleAdventureGameApp {
 
                 } else if (nextMove.equalsIgnoreCase("r")) {
                     hero.run();
-                } else if (enemy.enemysHealth <=0 || hero.herosHealth <= 0) {
-                    if(enemy.enemysHealth <= 0){
+                } else if (enemy.health <=0 || hero.health <= 0) {
+                    if(enemy.health <= 0){
                         System.out.println("You defeated the enemy");
                         endGame = true;
                     } else{
