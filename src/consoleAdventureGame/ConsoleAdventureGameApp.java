@@ -36,7 +36,7 @@ public class ConsoleAdventureGameApp {
 //                System.out.println(nextMove);
                 if (nextMove.equalsIgnoreCase("a")) {
 //                   attack();
-                    System.out.println(hero.getPlayer() + " decreased" + enemy.getPlayer() + "health by 5 points");
+                    System.out.println(hero.getPlayer() + " decreased " + enemy.getPlayer() + " health by 5 points");
                     enemy.attacked();
 
                 } else if (nextMove.equalsIgnoreCase("d")) {

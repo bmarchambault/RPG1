@@ -26,7 +26,22 @@ public abstract class AdventureGamePlayer {
         health -= hp;
     }
 
-    public void defend(){};
+//    public void defend(){};
+public void defend(){
+    System.out.println(getPlayer() + " defended your attack." +getPlayer() + " inflicted 2 damage points");
+    health -= 2;
+    remainingHealth();
+}
+    public void run() {
+        System.out.println("Game over, you lose");
+        System.out.println("Better luck next time");
+        endGame = true;
+    }
+    public void drinkPotion() {
+        System.out.println("You increased your health by 15 points");
+        health += 15;
+        remainingHealth();
+    }
 
     public abstract void remainingHealth ();
     public void attacked() {

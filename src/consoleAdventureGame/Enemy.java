@@ -46,11 +46,7 @@ public class Enemy extends AdventureGamePlayer {
     }
 
 
-public void defend(){
-    System.out.println("Enemy defended your attack.  You only inflicted 2 damage points");
-    health -= 2;
-    remainingHealth();
-}
+
 //    public int getRandomNumber(int min, int max) {
 //        return (int) ((Math.random() * (max - min)) + min);
 //    }
